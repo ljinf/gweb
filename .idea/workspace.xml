@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f78eb09-827a-4193-ae62-67f3f464bf84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/jin/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/jin/cost.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/jin/recovery.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/demo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/demo/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/context.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/controller.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/jin/jin.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/jin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/jin/trie.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/trie.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/jin/trie_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/trie_test.go" afterDir="false" />
     </list>
@@ -134,7 +138,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="实现动态路由" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现动态路由" />
+    <MESSAGE value="实现分组" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现分组" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -145,50 +150,51 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="94" key="#Go_Modules_(vgo)/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668675748178" />
-    <state x="452" y="40" key="CommitChangelistDialog2" timestamp="1668930236258">
+    <state x="452" y="40" key="CommitChangelistDialog2" timestamp="1668995681453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="40" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668930236258" />
-    <state width="1867" height="137" key="GridCell.Tab.0.bottom" timestamp="1668995565182">
+    <state x="452" y="40" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1668995681453" />
+    <state width="1867" height="218" key="GridCell.Tab.0.bottom" timestamp="1669000406793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067449" />
-    <state width="1867" height="137" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1668995565182" />
-    <state width="1867" height="137" key="GridCell.Tab.0.center" timestamp="1668995565182">
+    <state width="1867" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406793" />
+    <state width="1867" height="218" key="GridCell.Tab.0.center" timestamp="1669000406792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="295" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067449" />
-    <state width="1867" height="137" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1668995565182" />
-    <state width="1867" height="137" key="GridCell.Tab.0.left" timestamp="1668995565181">
+    <state width="1867" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406792" />
+    <state width="1867" height="218" key="GridCell.Tab.0.left" timestamp="1669000406792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="295" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067448" />
-    <state width="1867" height="137" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1668995565181" />
-    <state width="1867" height="137" key="GridCell.Tab.0.right" timestamp="1668995565182">
+    <state width="1867" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406792" />
+    <state width="1867" height="218" key="GridCell.Tab.0.right" timestamp="1669000406793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="295" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067449" />
-    <state width="1867" height="137" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1668995565182" />
-    <state width="1867" height="379" key="GridCell.Tab.1.bottom" timestamp="1668993967601">
+    <state width="1867" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406793" />
+    <state width="1867" height="360" key="GridCell.Tab.1.bottom" timestamp="1668998960174">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="386" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="379" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1668993967601" />
-    <state width="1867" height="379" key="GridCell.Tab.1.center" timestamp="1668993967601">
+    <state width="1867" height="360" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
+    <state width="1867" height="360" key="GridCell.Tab.1.center" timestamp="1668998960174">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="386" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="379" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1668993967601" />
-    <state width="1867" height="379" key="GridCell.Tab.1.left" timestamp="1668993967601">
+    <state width="1867" height="360" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
+    <state width="1867" height="360" key="GridCell.Tab.1.left" timestamp="1668998960174">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="386" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="379" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1668993967601" />
-    <state width="1867" height="379" key="GridCell.Tab.1.right" timestamp="1668993967601">
+    <state width="1867" height="360" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
+    <state width="1867" height="360" key="GridCell.Tab.1.right" timestamp="1668998960174">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1867" height="386" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="379" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1668993967601" />
+    <state width="1867" height="360" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
     <state x="330" y="75" key="SettingsEditor" timestamp="1668675766118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -201,16 +207,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="692" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668934237971" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/jin/trie_test.go</url>
-          <line>40</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

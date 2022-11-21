@@ -8,7 +8,7 @@ import (
 func add() *Router {
 
 	router := newRouter()
-	router.addRoute("get", "/", func(c *Context) {
+	/*router.addRoute("get", "/", func(c *Context) {
 		fmt.Println("get /")
 	})
 	router.addRoute("get", "/user", func(c *Context) {
@@ -30,7 +30,7 @@ func add() *Router {
 	})
 	router.addRoute("post", "/user/:id/age", func(c *Context) {
 		fmt.Println("post /user/:id/age")
-	})
+	})*/
 
 	return router
 }
@@ -41,7 +41,7 @@ func TestRouter(t *testing.T) {
 	_, handle := router.getRoute("get", "/user")
 	//_, handle := router.getRoute("post", "/user/1")
 	if handle != nil {
-		handle(nil)
+
 	} else {
 		fmt.Println("404 not found")
 	}

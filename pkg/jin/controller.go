@@ -1,3 +1,3 @@
 package jin
 
-type HandleFunc func(c *Context)
+type HandleFunc func(context *Context)

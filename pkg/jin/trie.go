@@ -8,20 +8,21 @@ type Tree struct {
 	root *node //根节点
 }
 
+//前缀树路由
 type node struct {
-	uri     string     //uri  例如：/user/login
-	segment string     //uri的一部分  例如： user
-	child   []*node    //子节点
-	handler HandleFunc //处理函数
+	uri     string       //uri  例如：/user/login
+	segment string       //uri的一部分  例如： user
+	child   []*node      //子节点
+	handler []HandleFunc //处理函数
 }
 
 func NewTree() *Tree {
 	return &Tree{
-		root: newNode("", "", nil),
+		root: newNode("", ""),
 	}
 }
 
-func newNode(uri string, segment string, handler HandleFunc) *node {
+func newNode(uri string, segment string, handler ...HandleFunc) *node {
 	return &node{
 		uri:     uri,
 		segment: segment,
@@ -31,7 +32,7 @@ func newNode(uri string, segment string, handler HandleFunc) *node {
 }
 
 //从根节点匹配，并添加
-func (t *Tree) Set(uri string, index int, handler HandleFunc) {
+func (t *Tree) Set(uri string, index int, handler []HandleFunc) {
 	segments := strings.Split(uri, "/")
 	if index >= len(segments) {
 		return
@@ -47,20 +48,20 @@ func (t *Tree) Set(uri string, index int, handler HandleFunc) {
 	}
 
 	if temp == nil {
-		n := newNode("", segments[index], nil)
+		n := newNode("", segments[index])
 		root.child = append(root.child, n)
 		temp = n
 	}
 
-	temp.insert(uri, index+1, handler)
+	temp.insert(uri, index+1, handler...)
 }
 
 //添加
-func (n *node) insert(uri string, index int, handler HandleFunc) {
+func (n *node) insert(uri string, index int, handler ...HandleFunc) {
 	segments := strings.Split(uri, "/")
 	if index >= len(segments) {
 		//历遍完以后，保存对应的处理函数
-		n.handler = handler
+		n.handler = append(n.handler, handler...)
 		n.uri = uri
 		return
 	}
@@ -73,16 +74,16 @@ func (n *node) insert(uri string, index int, handler HandleFunc) {
 	}
 
 	if root == nil {
-		child := newNode("", segments[index], nil)
+		child := newNode("", segments[index])
 		n.child = append(n.child, child)
 		root = child
 	}
 
-	root.insert(uri, index+1, handler)
+	root.insert(uri, index+1, handler...)
 }
 
 //匹配路由，返回处理函数
-func (t *Tree) Get(uri string) (pattern string, handler HandleFunc) {
+func (t *Tree) Get(uri string) (pattern string, handler []HandleFunc) {
 	if len(t.root.child) < 1 {
 		return "", nil
 	}

@@ -12,6 +12,9 @@ type Context struct {
 	request *http.Request
 	ctx     context.Context
 
+	middleware []HandleFunc //中间件+处理函数
+	index      int          //当前要执行的middleware
+
 	//写保护机制
 	writerMux *sync.Mutex
 	params    map[string]string // url路由匹配的参数
@@ -19,9 +22,18 @@ type Context struct {
 
 func NewContext(w http.ResponseWriter, r *http.Request) *Context {
 	return &Context{
-		writer:  w,
-		request: r,
-		params:  make(map[string]string),
+		writer:     w,
+		request:    r,
+		middleware: []HandleFunc{},
+		index:      -1,
+		params:     make(map[string]string),
+	}
+}
+
+func (c *Context) Next() {
+	c.index++
+	if c.index < len(c.middleware) {
+		c.middleware[c.index](c)
 	}
 }
 

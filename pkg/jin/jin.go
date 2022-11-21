@@ -17,20 +17,30 @@ func New() *Engine {
 	}
 }
 
-func (e *Engine) Get(url string, handle HandleFunc) {
+func Default() *Engine {
+	engine := &Engine{router: newRouter()}
+	engine.Use(Recovery(), Cost())
+	return engine
+}
+
+func (e *Engine) Get(url string, handle ...HandleFunc) {
 	e.router.addRoute("get", url, handle)
 }
 
-func (e *Engine) Post(url string, handle HandleFunc) {
+func (e *Engine) Post(url string, handle ...HandleFunc) {
 	e.router.addRoute("post", url, handle)
 }
 
-func (e *Engine) Put(url string, handle HandleFunc) {
+func (e *Engine) Put(url string, handle ...HandleFunc) {
 	e.router.addRoute("put", url, handle)
 }
 
-func (e *Engine) Delete(url string, handle HandleFunc) {
+func (e *Engine) Delete(url string, handle ...HandleFunc) {
 	e.router.addRoute("delete", url, handle)
+}
+
+func (e *Engine) Use(middleware ...HandleFunc) {
+	e.router.middleware = append(e.router.middleware, middleware...)
 }
 
 func (e *Engine) Run(addr string) {
@@ -43,7 +53,9 @@ func (e *Engine) Group(prefix string) IGroup {
 
 func (e *Engine) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
-	context := &Context{writer: w, request: r}
+	context := NewContext(w, r)
+	//中间件
+	context.middleware = append(context.middleware, e.router.middleware...)
 	//交给路由处理
 	e.router.handle(context)
 }

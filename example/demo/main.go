@@ -1,15 +1,25 @@
 package main
 
 import (
+	"fmt"
 	"lweb/pkg/jin"
 	"net/http"
 )
 
 func main() {
 
-	engine := jin.New()
+	engine := jin.Default()
+
+	engine.Use(func(c *jin.Context) {
+		fmt.Println("middleware 1")
+		c.Next()
+	})
 
 	engine.Get("/", func(c *jin.Context) {
+		fmt.Println("/  pre")
+		c.Next()
+	}, func(c *jin.Context) {
+		fmt.Println("hello jin")
 		c.String(http.StatusOK, "hello jin")
 	})
 

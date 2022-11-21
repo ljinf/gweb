@@ -8,11 +8,17 @@ import (
 var methodType = [4]string{"get", "post", "put", "delete"}
 
 type Router struct {
+	//对应请求的处理函数
 	handlers map[string]*Tree
+	//中间件
+	middleware []HandleFunc
 }
 
 func newRouter() *Router {
-	router := &Router{handlers: make(map[string]*Tree)}
+	router := &Router{
+		handlers:   make(map[string]*Tree),
+		middleware: []HandleFunc{},
+	}
 
 	for _, v := range methodType {
 		router.handlers[strings.ToUpper(v)] = NewTree()
@@ -21,13 +27,13 @@ func newRouter() *Router {
 	return router
 }
 
-func (r *Router) addRoute(method string, url string, handler HandleFunc) {
+func (r *Router) addRoute(method string, url string, handler []HandleFunc) {
 	if tree, ok := r.handlers[strings.ToUpper(method)]; ok {
 		tree.Set(url, 0, handler)
 	}
 }
 
-func (r *Router) getRoute(method string, url string) (map[string]string, HandleFunc) {
+func (r *Router) getRoute(method string, url string) (map[string]string, []HandleFunc) {
 	if tree, ok := r.handlers[strings.ToUpper(method)]; ok {
 		pattern, handler := tree.Get(url)
 		//解析路径参数
@@ -60,13 +66,15 @@ func (r *Router) handle(c *Context) {
 
 	url := c.request.URL.Path
 	//寻找路由
-	params, handleFunc := r.getRoute(method, url)
+	params, handlers := r.getRoute(method, url)
 	c.params = params
 
-	if handleFunc == nil {
+	if handlers == nil || len(handlers) < 1 {
 		c.String(http.StatusNotFound, "404 not found")
 		return
 	}
+
+	c.middleware = append(c.middleware, handlers...)
 	//执行对应处理函数
-	handleFunc(c)
+	c.Next()
 }
