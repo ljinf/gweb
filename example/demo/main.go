@@ -13,14 +13,17 @@ func main() {
 		c.String(http.StatusOK, "hello jin")
 	})
 
-	engine.Post("/user", func(c *jin.Context) {
-		c.String(http.StatusOK, "user login")
-	})
-
 	engine.Get("/ljf/:id", func(c *jin.Context) {
 		//ljfu
 		c.JSON(http.StatusOK, jin.H{"name": "jin", "id": c.Param("id")})
 	})
+
+	user := engine.Group("/user")
+	{
+		user.Post("/login", func(c *jin.Context) {
+			c.String(http.StatusOK, "user login")
+		})
+	}
 
 	engine.Run(":8099")
 

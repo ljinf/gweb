@@ -37,9 +37,13 @@ func (e *Engine) Run(addr string) {
 	log.Fatal(http.ListenAndServe(addr, e))
 }
 
+func (e *Engine) Group(prefix string) IGroup {
+	return NewGroup(e, prefix)
+}
+
 func (e *Engine) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
-	context := &Context{writer: w, request: r,}
+	context := &Context{writer: w, request: r}
 	//交给路由处理
 	e.router.handle(context)
 }

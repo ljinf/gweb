@@ -98,10 +98,8 @@ func (t *Tree) Get(uri string) (pattern string, handler HandleFunc) {
 	}
 
 	if temp != nil {
-		for _, child := range temp.child {
-			if node := child.find(segments[1]); node != nil {
-				return node.uri, node.handler
-			}
+		if node := temp.find(segments[1]); node != nil {
+			return node.uri, node.handler
 		}
 	}
 
@@ -111,10 +109,23 @@ func (t *Tree) Get(uri string) (pattern string, handler HandleFunc) {
 func (n *node) find(uri string) *node {
 	segments := strings.SplitN(uri, "/", 2)
 
-	//叶节点
 	if len(segments) == 1 {
-		if n.segment == segments[0] || hasPrefix(n.segment, ":") {
-			return n
+		//叶节点
+		if n.uri != "" {
+			if n.segment == segments[0] || hasPrefix(n.segment, ":") {
+				return n
+			}
+		} else {
+			//  类似：/user  直接匹配第二层了
+			matchs := n.filterNode(segments[0])
+			if len(matchs) < 1 {
+				return nil
+			}
+			for _, child := range matchs {
+				if child.segment == segments[0] || hasPrefix(child.segment, ":") {
+					return child
+				}
+			}
 		}
 		return nil
 	}
@@ -147,6 +158,7 @@ func (n *node) filterNode(segment string) []*node {
 			nodes = append(nodes, child)
 		}
 	}
+
 	return nodes
 }
 
