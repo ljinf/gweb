@@ -2,16 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f78eb09-827a-4193-ae62-67f3f464bf84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/jin/cost.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/jin/recovery.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/context.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/web/controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/web/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/web/route.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/web/subject_controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/web/user_controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/cost.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/recovery.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/timeout.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/timeout.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tire_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trie.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/demo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/demo/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/jin/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/context.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/jin/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/controller.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/jin/jin.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/jin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/jin/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/jin/trie.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/trie.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/jin/trie_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jin/trie_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/demo/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/context.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/controller.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/cost.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/group.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/jin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/recovery.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/router.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/trie.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jin/trie_test.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +78,31 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
-  <component name="RunManager" selected="Go Build.go build lweb/example/demo">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\007\rpc项目\gweb" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build github.com/ljinf/gweb/examples/web">
+    <configuration name="go build github.com/ljinf/gweb/examples/web" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gweb" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/examples/web/main.go" />
+      <package value="github.com/ljinf/gweb/examples/web" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build lweb/example/demo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lweb" />
+      <module name="gweb" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/example/demo/main.go" />
@@ -69,7 +110,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestRouter in lweb/pkg/jin (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="lweb" />
+      <module name="gweb" />
       <working_directory value="$PROJECT_DIR$/pkg/jin" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -80,7 +121,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestRouter in lweb/pkg/jin (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="lweb" />
+      <module name="gweb" />
       <working_directory value="$PROJECT_DIR$/pkg/jin" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -91,7 +132,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestRouter in lweb/pkg/jin (3)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="lweb" />
+      <module name="gweb" />
       <working_directory value="$PROJECT_DIR$/pkg/jin" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -101,22 +142,13 @@
       <pattern value="^TestRouter$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestRouter in lweb/pkg/jin" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="lweb" />
-      <working_directory value="$PROJECT_DIR$/pkg/jin" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="lweb/pkg/jin" />
-      <pattern value="^TestRouter$" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/ljinf/gweb/examples/web" />
         <item itemvalue="Go Build.go build lweb/example/demo" />
         <item itemvalue="Go Test.TestRouter in lweb/pkg/jin (3)" />
         <item itemvalue="Go Test.TestRouter in lweb/pkg/jin (2)" />
         <item itemvalue="Go Test.TestRouter in lweb/pkg/jin (1)" />
-        <item itemvalue="Go Test.TestRouter in lweb/pkg/jin" />
       </list>
     </recent_temporary>
   </component>
@@ -146,66 +178,25 @@
     <proxy>https://goproxy.cn,direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state x="452" y="94" key="#Go_Modules_(vgo)" timestamp="1668675748178">
+    <state width="1855" height="299" key="GridCell.Tab.0.bottom" timestamp="1695266900930">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="94" key="#Go_Modules_(vgo)/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668675748178" />
-    <state x="452" y="40" key="CommitChangelistDialog2" timestamp="1668995681453">
+    <state width="1855" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1695266900930" />
+    <state width="1855" height="299" key="GridCell.Tab.0.center" timestamp="1695266900929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="40" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668930236258" />
-    <state x="452" y="40" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1668995681453" />
-    <state width="1867" height="218" key="GridCell.Tab.0.bottom" timestamp="1669000406793">
+    <state width="1855" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1695266900929" />
+    <state width="1855" height="299" key="GridCell.Tab.0.left" timestamp="1695266900929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067449" />
-    <state width="1867" height="218" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406793" />
-    <state width="1867" height="218" key="GridCell.Tab.0.center" timestamp="1669000406792">
+    <state width="1855" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1695266900929" />
+    <state width="1855" height="299" key="GridCell.Tab.0.right" timestamp="1695266900930">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="295" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067449" />
-    <state width="1867" height="218" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406792" />
-    <state width="1867" height="218" key="GridCell.Tab.0.left" timestamp="1669000406792">
+    <state width="1855" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1695266900930" />
+    <state x="395" y="52" width="1130" height="936" key="find.popup" timestamp="1695265859353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1867" height="295" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067448" />
-    <state width="1867" height="218" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406792" />
-    <state width="1867" height="218" key="GridCell.Tab.0.right" timestamp="1669000406793">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="295" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668938067449" />
-    <state width="1867" height="218" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1669000406793" />
-    <state width="1867" height="360" key="GridCell.Tab.1.bottom" timestamp="1668998960174">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="386" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="360" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
-    <state width="1867" height="360" key="GridCell.Tab.1.center" timestamp="1668998960174">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="386" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="360" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
-    <state width="1867" height="360" key="GridCell.Tab.1.left" timestamp="1668998960174">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="386" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="360" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
-    <state width="1867" height="360" key="GridCell.Tab.1.right" timestamp="1668998960174">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1867" height="386" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668937754002" />
-    <state width="1867" height="360" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1668998960174" />
-    <state x="330" y="75" key="SettingsEditor" timestamp="1668675766118">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="330" y="75" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668675766118" />
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1668933729333">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668933729333" />
-    <state x="692" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1668934237971">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="692" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1668934237971" />
+    <state x="395" y="52" width="1130" height="936" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1695265859353" />
   </component>
 </project>
